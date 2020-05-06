@@ -25,8 +25,6 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     
     var exist = false
     
-    let confirmAction = UIAlertAction(title: "Ok", style: .default)
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -38,11 +36,13 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
         inputArea.delegate = self
         fileName.delegate = self
     }
-        
+    
+// MARK: - File Manager
+    
     @IBAction func createFileBtn(_ sender: UIButton)
     {
         createFile()
-        fileCreateSuccessAlert()
+        operationAlert(alertType: .fileCreateSuccessAlert)
     }
     
     @IBAction func writeToFileBtn(_ sender: UIButton)
@@ -59,7 +59,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
             }
             else
             {
-                fileNotExistAlert()
+                operationAlert(alertType: .fileNotExistAlert)
             }
         }
     }
@@ -78,7 +78,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
             }
             else
             {
-                fileNotExistAlert()
+                operationAlert(alertType: .fileNotExistAlert)
             }
         }
     }
@@ -94,26 +94,14 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
             if exist
             {
                 deleteFile(fileUrl: fileUrl)
-                fileDeleteSuccessAlert()
+                operationAlert(alertType: .fileDeleteSuccessAlert)
             }
             else
             {
-                fileNotExistAlert()
+                operationAlert(alertType: .fileNotExistAlert)
             }
             
         }
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
-    {
-        if text == "\n"
-        {
-            inputArea.resignFirstResponder()
-            
-            return false
-        }
-        
-        return true
     }
     
     func createFile()
@@ -128,7 +116,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
         }
         else
         {
-            fileExistAlert()
+            operationAlert(alertType: .fileExistAlert)
         }
         
     }
@@ -145,7 +133,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
             }
             else
             {
-                fileNameEmptyAlert()
+                operationAlert(alertType: .fileNameEmptyAlert)
                 return false
             }
         }
@@ -178,44 +166,55 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
         inputArea.text = nil
     }
     
-    func fileNameEmptyAlert()
+// MARK: - Operation Alert
+    
+    func operationAlert(alertType: Alert)
     {
-        let alertCtl = UIAlertController(title: "Warning!", message: "File Name is Empty, please input a file name", preferredStyle: .alert)
+        var message: String
+        var title: String
+        
+        switch alertType
+        {
+            case .fileCreateSuccessAlert:
+                title = "Attention!"
+                message = "File \(fileName.text!) is created"
+            case .fileDeleteSuccessAlert:
+                title = "Attention!"
+                message = "File \(fileName.text!) is deleted"
+            case .fileExistAlert:
+                title = "Warning!"
+                message = "File already exist, please use another file name"
+            case .fileNotExistAlert:
+                title = "Warning!"
+                message = "File not exist"
+            case.fileNameEmptyAlert:
+                title = "Warning!"
+                message = "File Name is Empty, please input a file name"
+        }
+        
+        let alertCtl = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default)
         alertCtl.addAction(confirmAction)
         self.present(alertCtl, animated: true, completion: nil)
     }
     
-    func fileNotExistAlert()
-    {
-        let alertCtl = UIAlertController(title: "Warning!", message: "File not exist", preferredStyle: .alert)
-        alertCtl.addAction(confirmAction)
-        self.present(alertCtl, animated: true, completion: nil)
-    }
-    
-    func fileExistAlert()
-    {
-        let alertCtl = UIAlertController(title: "Warning!", message: "File already exist, please use another file name", preferredStyle: .alert)
-        alertCtl.addAction(confirmAction)
-        self.present(alertCtl, animated: true, completion: nil)
-    }
-    
-    func fileCreateSuccessAlert()
-    {
-        let alertCtl = UIAlertController(title: "Attention!", message: "File \(fileName.text!) is created", preferredStyle: .alert)
-        alertCtl.addAction(confirmAction)
-        self.present(alertCtl, animated: true, completion: nil)
-    }
-    
-    func fileDeleteSuccessAlert()
-    {
-        let alertCtl = UIAlertController(title: "Attention!", message: "File \(fileName.text!) is deleted", preferredStyle: .alert)
-        alertCtl.addAction(confirmAction)
-        self.present(alertCtl, animated: true, completion: nil)
-    }
+// MARK: - Text field and View dismiss Keyboard
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         fileName.resignFirstResponder()
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        if text == "\n"
+        {
+            inputArea.resignFirstResponder()
+            
+            return false
+        }
+        
         return true
     }
 }

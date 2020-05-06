@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D154CC424635D8E00DE32E8 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D154CC324635D8E00DE32E8 /* Alert.swift */; };
 		3D203CF924622B2F00A63096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D203CF824622B2F00A63096 /* AppDelegate.swift */; };
 		3D203CFB24622B2F00A63096 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D203CFA24622B2F00A63096 /* SceneDelegate.swift */; };
 		3D203CFD24622B2F00A63096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D203CFC24622B2F00A63096 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D154CC324635D8E00DE32E8 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		3D203CF524622B2F00A63096 /* FileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D203CF824622B2F00A63096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D203CFA24622B2F00A63096 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D154CC524635D9200DE32E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D154CC324635D8E00DE32E8 /* Alert.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3D203CEC24622B2F00A63096 = {
 			isa = PBXGroup;
 			children = (
@@ -56,8 +66,9 @@
 		3D203CF724622B2F00A63096 /* FileManager */ = {
 			isa = PBXGroup;
 			children = (
-				3D203D0C2462527C00A63096 /* Controller */,
+				3D154CC524635D9200DE32E8 /* Model */,
 				3D203D0D246252A300A63096 /* View */,
+				3D203D0C2462527C00A63096 /* Controller */,
 				3D203D0124622B2F00A63096 /* Assets.xcassets */,
 				3D203D0624622B2F00A63096 /* Info.plist */,
 			);
@@ -156,6 +167,7 @@
 			files = (
 				3D203CFD24622B2F00A63096 /* ViewController.swift in Sources */,
 				3D203CF924622B2F00A63096 /* AppDelegate.swift in Sources */,
+				3D154CC424635D8E00DE32E8 /* Alert.swift in Sources */,
 				3D203CFB24622B2F00A63096 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
