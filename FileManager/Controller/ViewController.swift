@@ -11,11 +11,11 @@ import UIKit
 class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
 {
 
-    @IBOutlet weak var displayArea: UITextView!
+    @IBOutlet weak var fileContentDisplayView: UITextView!
     
-    @IBOutlet weak var inputArea: UITextView!
+    @IBOutlet weak var fileContentInputView: UITextView!
     
-    @IBOutlet weak var fileName: UITextField!
+    @IBOutlet weak var fileNameInputField: UITextField!
     
     var manager = FileManager.default
     
@@ -33,8 +33,8 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     
     func setupTextFieldAndView()
     {
-        inputArea.delegate = self
-        fileName.delegate = self
+        fileContentInputView.delegate = self
+        fileNameInputField.delegate = self
     }
     
 // MARK: - File Manager
@@ -104,6 +104,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
         }
     }
     
+    @IBAction func clearTextBtn(_ sender: UIButton)
+    {
+        clearText()
+    }
+    
     func createFile()
     {
         guard catchUrl() else {return}
@@ -123,37 +128,36 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     
     func catchUrl() -> Bool
     {
-        do
-        {
-            if let name = fileName.text, !name.isEmpty
+            if let name = fileNameInputField.text, !name.isEmpty
             {
-                url = try manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                file = url?.appendingPathComponent(name).appendingPathExtension("txt")
-                return true
+                do
+                {
+                    url = try manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                    file = url?.appendingPathComponent(name).appendingPathExtension("txt")
+                    return true
+                }
+                catch
+                {
+                    return false
+                }
             }
             else
             {
                 operationAlert(alertType: .fileNameEmptyAlert)
                 return false
             }
-        }
-        catch
-        {
-           print(error)
-           return false
-        }
     }
     
     func readFromFile()
     {
         let readHandler = try? FileHandle(forReadingFrom: file!)
         let data = readHandler!.readDataToEndOfFile()
-        displayArea.text = String(data: data, encoding: String.Encoding.utf8)
+        fileContentDisplayView.text = String(data: data, encoding: String.Encoding.utf8)
     }
     
     func writeToFile()
     {
-        let appendedData = inputArea.text.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        let appendedData = fileContentInputView.text.data(using: String.Encoding.utf8, allowLossyConversion: true)
         let writeHandler = try? FileHandle(forWritingTo: file!)
         writeHandler?.seekToEndOfFile()
         writeHandler?.write(appendedData!)
@@ -162,8 +166,13 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     func deleteFile(fileUrl: URL)
     {
         try! manager.removeItem(at: fileUrl)
-        displayArea.text = nil
-        inputArea.text = nil
+        clearText()
+    }
+    
+    func clearText()
+    {
+        fileContentDisplayView.text = nil
+        fileContentInputView.text = nil
     }
     
 // MARK: - Operation Alert
@@ -177,10 +186,10 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
         {
             case .fileCreateSuccessAlert:
                 title = "Attention!"
-                message = "File \(fileName.text!) is created"
+                message = "File \(fileNameInputField.text!) is created"
             case .fileDeleteSuccessAlert:
                 title = "Attention!"
-                message = "File \(fileName.text!) is deleted"
+                message = "File \(fileNameInputField.text!) is deleted"
             case .fileExistAlert:
                 title = "Warning!"
                 message = "File already exist, please use another file name"
@@ -202,7 +211,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
-        fileName.resignFirstResponder()
+        fileNameInputField.resignFirstResponder()
         return true
     }
     
@@ -210,7 +219,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     {
         if text == "\n"
         {
-            inputArea.resignFirstResponder()
+            fileContentInputView.resignFirstResponder()
             
             return false
         }
@@ -236,7 +245,7 @@ extension ViewController: UIDocumentPickerDelegate
     {
         //Update File Name Area
         let name = urls[0].deletingPathExtension().lastPathComponent
-        fileName.text = name
+        fileNameInputField.text = name
         //Assign URL
         file = urls[0]
         //Update Display Area
