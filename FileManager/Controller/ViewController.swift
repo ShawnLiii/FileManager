@@ -56,6 +56,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
             if exist
             {
                 writeToFile()
+                operationAlert(alertType: .fileWriteSuccessAlert)
             }
             else
             {
@@ -199,6 +200,9 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
             case.fileNameEmptyAlert:
                 title = "Warning!"
                 message = "File Name is Empty, please input a file name"
+            case .fileWriteSuccessAlert:
+                title = "Attention!"
+                message = "File content has been written successfully"
         }
         
         let alertCtl = UIAlertController(title: title, message: message, preferredStyle: .alert)

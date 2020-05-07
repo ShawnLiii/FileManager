@@ -15,4 +15,5 @@ enum Alert
     case fileExistAlert
     case fileCreateSuccessAlert
     case fileDeleteSuccessAlert
+    case fileWriteSuccessAlert
 }
