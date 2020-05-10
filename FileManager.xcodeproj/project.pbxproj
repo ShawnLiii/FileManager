@@ -14,6 +14,9 @@
 		3D203D0024622B2F00A63096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D203CFE24622B2F00A63096 /* Main.storyboard */; };
 		3D203D0224622B2F00A63096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D203D0124622B2F00A63096 /* Assets.xcassets */; };
 		3D203D0524622B2F00A63096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D203D0324622B2F00A63096 /* LaunchScreen.storyboard */; };
+		3DAEA7CF2467615A001DB0A2 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7CE2467615A001DB0A2 /* PDFViewController.swift */; };
+		3DAEA7D724677D26001DB0A2 /* PDFViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7D624677D26001DB0A2 /* PDFViewController2.swift */; };
+		3DAEA7DD24678F04001DB0A2 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7DC24678F04001DB0A2 /* VideoPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		3D203D0124622B2F00A63096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D203D0424622B2F00A63096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D203D0624622B2F00A63096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DAEA7CE2467615A001DB0A2 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		3DAEA7D624677D26001DB0A2 /* PDFViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController2.swift; sourceTree = "<group>"; };
+		3DAEA7DC24678F04001DB0A2 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,9 @@
 				3D203CF824622B2F00A63096 /* AppDelegate.swift */,
 				3D203CFA24622B2F00A63096 /* SceneDelegate.swift */,
 				3D203CFC24622B2F00A63096 /* ViewController.swift */,
+				3DAEA7CE2467615A001DB0A2 /* PDFViewController.swift */,
+				3DAEA7D624677D26001DB0A2 /* PDFViewController2.swift */,
+				3DAEA7DC24678F04001DB0A2 /* VideoPlayerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,7 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAEA7CF2467615A001DB0A2 /* PDFViewController.swift in Sources */,
 				3D203CFD24622B2F00A63096 /* ViewController.swift in Sources */,
+				3DAEA7D724677D26001DB0A2 /* PDFViewController2.swift in Sources */,
+				3DAEA7DD24678F04001DB0A2 /* VideoPlayerViewController.swift in Sources */,
 				3D203CF924622B2F00A63096 /* AppDelegate.swift in Sources */,
 				3D154CC424635D8E00DE32E8 /* Alert.swift in Sources */,
 				3D203CFB24622B2F00A63096 /* SceneDelegate.swift in Sources */,

@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
+
+
+ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
 {
 
     @IBOutlet weak var fileContentDisplayView: UITextView!
@@ -17,13 +19,13 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     
     @IBOutlet weak var fileNameInputField: UITextField!
     
-    var manager = FileManager.default
+    var fileManager = FileManager.default
     
-    var url: URL?
+    var domainUrl: URL?
     
-    var file: URL?
+    var filePathUrl: URL?
     
-    var exist = false
+    var fileExist = false
     
     override func viewDidLoad()
     {
@@ -37,7 +39,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
         fileNameInputField.delegate = self
     }
     
-// MARK: - File Manager
+//MARK: - File Manager
     
     @IBAction func createFileBtn(_ sender: UIButton)
     {
@@ -49,11 +51,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     {
         guard catchUrl() else {return}
         
-        if let fileUrl = file
+        if let fileUrl = filePathUrl
         {
-            exist = manager.fileExists(atPath: fileUrl.path)
+            fileExist = fileManager.fileExists(atPath: fileUrl.path)
             
-            if exist
+            if fileExist
             {
                 writeToFile()
                 operationAlert(alertType: .fileWriteSuccessAlert)
@@ -69,11 +71,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     {
         guard catchUrl() else {return}
         
-        if let fileUrl = file
+        if let fileUrl = filePathUrl
         {
-            exist = manager.fileExists(atPath: fileUrl.path)
+            fileExist = fileManager.fileExists(atPath: fileUrl.path)
             
-            if exist
+            if fileExist
             {
                 readFromFile()
             }
@@ -88,11 +90,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     {
         guard catchUrl() else {return}
          
-        if let fileUrl = file
+        if let fileUrl = filePathUrl
         {
-            exist = manager.fileExists(atPath: fileUrl.path)
+            fileExist = fileManager.fileExists(atPath: fileUrl.path)
             
-            if exist
+            if fileExist
             {
                 deleteFile(fileUrl: fileUrl)
                 operationAlert(alertType: .fileDeleteSuccessAlert)
@@ -114,11 +116,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     {
         guard catchUrl() else {return}
         
-        exist = manager.fileExists(atPath: file!.path)
+        fileExist = fileManager.fileExists(atPath: filePathUrl!.path)
             
-        if !exist
+        if !fileExist
         {
-            manager.createFile(atPath: file!.path, contents: nil, attributes: nil)
+            fileManager.createFile(atPath: filePathUrl!.path, contents: nil, attributes: nil)
         }
         else
         {
@@ -133,8 +135,8 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
             {
                 do
                 {
-                    url = try manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                    file = url?.appendingPathComponent(name).appendingPathExtension("txt")
+                    domainUrl = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                    filePathUrl = domainUrl?.appendingPathComponent(name).appendingPathExtension("txt")
                     return true
                 }
                 catch
@@ -151,7 +153,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     
     func readFromFile()
     {
-        let readHandler = try? FileHandle(forReadingFrom: file!)
+        let readHandler = try? FileHandle(forReadingFrom: filePathUrl!)
         let data = readHandler!.readDataToEndOfFile()
         fileContentDisplayView.text = String(data: data, encoding: String.Encoding.utf8)
     }
@@ -159,14 +161,14 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     func writeToFile()
     {
         let appendedData = fileContentInputView.text.data(using: String.Encoding.utf8, allowLossyConversion: true)
-        let writeHandler = try? FileHandle(forWritingTo: file!)
+        let writeHandler = try? FileHandle(forWritingTo: filePathUrl!)
         writeHandler?.seekToEndOfFile()
         writeHandler?.write(appendedData!)
     }
     
     func deleteFile(fileUrl: URL)
     {
-        try! manager.removeItem(at: fileUrl)
+        try! fileManager.removeItem(at: fileUrl)
         clearText()
     }
     
@@ -176,7 +178,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
         fileContentInputView.text = nil
     }
     
-// MARK: - Operation Alert
+//MARK: - Operation Alert
     
     func operationAlert(alertType: Alert)
     {
@@ -211,7 +213,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
         self.present(alertCtl, animated: true, completion: nil)
     }
     
-// MARK: - Text field and View dismiss Keyboard
+//MARK: - Text field and View dismiss Keyboard
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
@@ -232,7 +234,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate
     }
 }
 
-// MARK: - Document Picker
+//MARK: - Document Picker
 
 extension ViewController: UIDocumentPickerDelegate
 {
@@ -251,7 +253,7 @@ extension ViewController: UIDocumentPickerDelegate
         let name = urls[0].deletingPathExtension().lastPathComponent
         fileNameInputField.text = name
         //Assign URL
-        file = urls[0]
+        filePathUrl = urls[0]
         //Update Display Area
         readFromFile()
     }
