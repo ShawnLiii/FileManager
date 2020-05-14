@@ -14,6 +14,12 @@
 		3D203D0024622B2F00A63096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D203CFE24622B2F00A63096 /* Main.storyboard */; };
 		3D203D0224622B2F00A63096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D203D0124622B2F00A63096 /* Assets.xcassets */; };
 		3D203D0524622B2F00A63096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D203D0324622B2F00A63096 /* LaunchScreen.storyboard */; };
+		3D4A4319246B9189004AAB96 /* Books.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A4318246B9189004AAB96 /* Books.json */; };
+		3D4A431B246B9195004AAB96 /* Books.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3D4A431A246B9195004AAB96 /* Books.xml */; };
+		3D4A431D246B925E004AAB96 /* JsonReaderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A431C246B925E004AAB96 /* JsonReaderTableViewController.swift */; };
+		3D4A431F246B9275004AAB96 /* XMLReaderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A431E246B9275004AAB96 /* XMLReaderTableViewController.swift */; };
+		3D4A4321246B928B004AAB96 /* JsonReaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A4320246B928B004AAB96 /* JsonReaderTableViewCell.swift */; };
+		3D4A4323246B929B004AAB96 /* XMLReaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A4322246B929B004AAB96 /* XMLReaderTableViewCell.swift */; };
 		3DAEA7CF2467615A001DB0A2 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7CE2467615A001DB0A2 /* PDFViewController.swift */; };
 		3DAEA7D724677D26001DB0A2 /* PDFViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7D624677D26001DB0A2 /* PDFViewController2.swift */; };
 		3DAEA7DD24678F04001DB0A2 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7DC24678F04001DB0A2 /* VideoPlayerViewController.swift */; };
@@ -29,6 +35,12 @@
 		3D203D0124622B2F00A63096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D203D0424622B2F00A63096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D203D0624622B2F00A63096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D4A4318246B9189004AAB96 /* Books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Books.json; sourceTree = "<group>"; };
+		3D4A431A246B9195004AAB96 /* Books.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Books.xml; sourceTree = "<group>"; };
+		3D4A431C246B925E004AAB96 /* JsonReaderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReaderTableViewController.swift; sourceTree = "<group>"; };
+		3D4A431E246B9275004AAB96 /* XMLReaderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLReaderTableViewController.swift; sourceTree = "<group>"; };
+		3D4A4320246B928B004AAB96 /* JsonReaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReaderTableViewCell.swift; sourceTree = "<group>"; };
+		3D4A4322246B929B004AAB96 /* XMLReaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLReaderTableViewCell.swift; sourceTree = "<group>"; };
 		3DAEA7CE2467615A001DB0A2 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		3DAEA7D624677D26001DB0A2 /* PDFViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController2.swift; sourceTree = "<group>"; };
 		3DAEA7DC24678F04001DB0A2 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +60,8 @@
 		3D154CC524635D9200DE32E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D4A431A246B9195004AAB96 /* Books.xml */,
+				3D4A4318246B9189004AAB96 /* Books.json */,
 				3D154CC324635D8E00DE32E8 /* Alert.swift */,
 			);
 			path = Model;
@@ -90,6 +104,10 @@
 				3DAEA7CE2467615A001DB0A2 /* PDFViewController.swift */,
 				3DAEA7D624677D26001DB0A2 /* PDFViewController2.swift */,
 				3DAEA7DC24678F04001DB0A2 /* VideoPlayerViewController.swift */,
+				3D4A431C246B925E004AAB96 /* JsonReaderTableViewController.swift */,
+				3D4A431E246B9275004AAB96 /* XMLReaderTableViewController.swift */,
+				3D4A4320246B928B004AAB96 /* JsonReaderTableViewCell.swift */,
+				3D4A4322246B929B004AAB96 /* XMLReaderTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,6 +179,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D4A431B246B9195004AAB96 /* Books.xml in Resources */,
+				3D4A4319246B9189004AAB96 /* Books.json in Resources */,
 				3D203D0524622B2F00A63096 /* LaunchScreen.storyboard in Resources */,
 				3D203D0224622B2F00A63096 /* Assets.xcassets in Resources */,
 				3D203D0024622B2F00A63096 /* Main.storyboard in Resources */,
@@ -175,12 +195,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DAEA7CF2467615A001DB0A2 /* PDFViewController.swift in Sources */,
+				3D4A431F246B9275004AAB96 /* XMLReaderTableViewController.swift in Sources */,
 				3D203CFD24622B2F00A63096 /* ViewController.swift in Sources */,
 				3DAEA7D724677D26001DB0A2 /* PDFViewController2.swift in Sources */,
 				3DAEA7DD24678F04001DB0A2 /* VideoPlayerViewController.swift in Sources */,
+				3D4A431D246B925E004AAB96 /* JsonReaderTableViewController.swift in Sources */,
 				3D203CF924622B2F00A63096 /* AppDelegate.swift in Sources */,
 				3D154CC424635D8E00DE32E8 /* Alert.swift in Sources */,
+				3D4A4321246B928B004AAB96 /* JsonReaderTableViewCell.swift in Sources */,
 				3D203CFB24622B2F00A63096 /* SceneDelegate.swift in Sources */,
+				3D4A4323246B929B004AAB96 /* XMLReaderTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

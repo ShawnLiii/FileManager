@@ -17,3 +17,9 @@ enum Alert
     case fileDeleteSuccessAlert
     case fileWriteSuccessAlert
 }
+
+struct Book
+{
+    var title: String
+    var author: String
+}
