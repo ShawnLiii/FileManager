@@ -23,6 +23,7 @@
 		3DAEA7CF2467615A001DB0A2 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7CE2467615A001DB0A2 /* PDFViewController.swift */; };
 		3DAEA7D724677D26001DB0A2 /* PDFViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7D624677D26001DB0A2 /* PDFViewController2.swift */; };
 		3DAEA7DD24678F04001DB0A2 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEA7DC24678F04001DB0A2 /* VideoPlayerViewController.swift */; };
+		3DAF5E76246DE72D005DB511 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF5E75246DE72D005DB511 /* URLSessionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3DAEA7CE2467615A001DB0A2 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		3DAEA7D624677D26001DB0A2 /* PDFViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController2.swift; sourceTree = "<group>"; };
 		3DAEA7DC24678F04001DB0A2 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		3DAF5E75246DE72D005DB511 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				3D4A431E246B9275004AAB96 /* XMLReaderTableViewController.swift */,
 				3D4A4320246B928B004AAB96 /* JsonReaderTableViewCell.swift */,
 				3D4A4322246B929B004AAB96 /* XMLReaderTableViewCell.swift */,
+				3DAF5E75246DE72D005DB511 /* URLSessionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				3DAEA7CF2467615A001DB0A2 /* PDFViewController.swift in Sources */,
 				3D4A431F246B9275004AAB96 /* XMLReaderTableViewController.swift in Sources */,
 				3D203CFD24622B2F00A63096 /* ViewController.swift in Sources */,
+				3DAF5E76246DE72D005DB511 /* URLSessionViewController.swift in Sources */,
 				3DAEA7D724677D26001DB0A2 /* PDFViewController2.swift in Sources */,
 				3DAEA7DD24678F04001DB0A2 /* VideoPlayerViewController.swift in Sources */,
 				3D4A431D246B925E004AAB96 /* JsonReaderTableViewController.swift in Sources */,

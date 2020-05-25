@@ -597,11 +597,63 @@
                             <outlet property="delegate" destination="bCo-u1-V8t" id="aJY-1P-h63"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="XML Reader" id="XMG-77-h2s"/>
+                    <navigationItem key="navigationItem" title="XML Reader" id="XMG-77-h2s">
+                        <barButtonItem key="rightBarButtonItem" title="Web Server" id="6D2-im-Ews">
+                            <connections>
+                                <segue destination="HO6-ol-ieH" kind="show" id="Hxt-nM-tI0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eX-MO-COt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4702.898550724638" y="137.94642857142856"/>
+        </scene>
+        <!--Web Request -->
+        <scene sceneID="r08-JA-jWK">
+            <objects>
+                <viewController id="HO6-ol-ieH" customClass="URLSessionViewController" customModule="FileManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wSv-0I-e0e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N82-DV-T2D">
+                                <rect key="frame" x="135" y="417" width="144" height="63"/>
+                                <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Get Request"/>
+                                <connections>
+                                    <action selector="getReqBtnTapped:" destination="HO6-ol-ieH" eventType="touchUpInside" id="Fez-oI-L4a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaZ-a0-w9E">
+                                <rect key="frame" x="135" y="515" width="144" height="63"/>
+                                <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Post Request"/>
+                                <connections>
+                                    <action selector="postReqBtnTapped:" destination="HO6-ol-ieH" eventType="touchUpInside" id="ljs-7J-Gsd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RPC-9N-r98" firstAttribute="bottom" secondItem="gaZ-a0-w9E" secondAttribute="bottom" constant="284" id="1GL-kf-sVa"/>
+                            <constraint firstItem="N82-DV-T2D" firstAttribute="centerX" secondItem="wSv-0I-e0e" secondAttribute="centerX" id="219-kX-hDL"/>
+                            <constraint firstItem="N82-DV-T2D" firstAttribute="centerY" secondItem="wSv-0I-e0e" secondAttribute="centerY" id="Kda-7R-p0u"/>
+                            <constraint firstItem="N82-DV-T2D" firstAttribute="trailing" secondItem="gaZ-a0-w9E" secondAttribute="trailing" id="Ma0-bL-21q"/>
+                            <constraint firstItem="N82-DV-T2D" firstAttribute="top" secondItem="RPC-9N-r98" secondAttribute="top" constant="329" id="RCr-Pn-hrl"/>
+                            <constraint firstItem="N82-DV-T2D" firstAttribute="leading" secondItem="RPC-9N-r98" secondAttribute="leading" constant="135" id="YvZ-du-90o"/>
+                            <constraint firstItem="gaZ-a0-w9E" firstAttribute="top" secondItem="N82-DV-T2D" secondAttribute="bottom" constant="35" id="cGz-fh-AgU"/>
+                            <constraint firstItem="N82-DV-T2D" firstAttribute="leading" secondItem="gaZ-a0-w9E" secondAttribute="leading" id="rWm-S5-C3n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RPC-9N-r98"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Web Request " id="nhq-ey-gGf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dep-qE-twR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5634.7826086956529" y="137.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hBZ-Wr-Wcy">
